@@ -166,7 +166,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="{{ route('category.index') }}" class="nav-link">
             <i class="nav-icon fas fa-clipboard-list"></i>
               <p>
                 Категории
@@ -206,7 +206,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    @yield('content');
+    @yield('content')
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
