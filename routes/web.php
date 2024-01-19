@@ -8,6 +8,13 @@ use App\Http\Controllers\Category\ShowController;
 use App\Http\Controllers\Category\StoreController;
 use App\Http\Controllers\Category\UpdateController;
 use App\Http\Controllers\Main\IndexController;
+use App\Http\Controllers\Order\OrderCreateController;
+use App\Http\Controllers\Order\OrderDeleteController;
+use App\Http\Controllers\Order\OrderEditController;
+use App\Http\Controllers\Order\OrderIndexController;
+use App\Http\Controllers\Order\OrderShowController;
+use App\Http\Controllers\Order\OrderStoreController;
+use App\Http\Controllers\Order\OrderUpdateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,5 +39,17 @@ Route::group(['prefix' => 'categories'], function() {
     Route::get('/{category}', ShowController::class)->name('category.show');
     Route::patch('/{category}', UpdateController::class)->name('category.update');
     Route::delete('/{category}', DeleteController::class)->name('category.delete');
+
+});
+
+Route::group(['prefix' => 'orders'], function() {
+
+    Route::get('/', OrderIndexController::class)->name('order.index');
+    Route::get('/create', OrderCreateController::class)->name('order.create');
+    Route::post('/', OrderStoreController::class)->name('order.store');
+    Route::get('/{order}/edit', OrderEditController::class)->name('order.edit');
+    Route::get('/{order}', OrderShowController::class)->name('order.show');
+    Route::patch('/{order}', OrderUpdateController::class)->name('order.update');
+    Route::delete('/{order}', OrderDeleteController::class)->name('order.delete');
 
 });
