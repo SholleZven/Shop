@@ -22,6 +22,13 @@ use App\Http\Controllers\Product\ProductIndexController;
 use App\Http\Controllers\Product\ProductShowController;
 use App\Http\Controllers\Product\ProductStoreController;
 use App\Http\Controllers\Product\ProductUpdateController;
+use App\Http\Controllers\Tag\TagCreateController;
+use App\Http\Controllers\Tag\TagDeleteController;
+use App\Http\Controllers\Tag\TagEditController;
+use App\Http\Controllers\Tag\TagIndexController;
+use App\Http\Controllers\Tag\TagShowController;
+use App\Http\Controllers\Tag\TagStoreController;
+use App\Http\Controllers\Tag\TagUpdateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -70,5 +77,17 @@ Route::group(['prefix' => 'products'], function() {
     Route::get('/{product}', ProductShowController::class)->name('product.show');
     Route::patch('/{product}', ProductUpdateController::class)->name('product.update');
     Route::delete('/{product}', ProductDeleteController::class)->name('product.delete');
+
+});
+
+Route::group(['prefix' => 'tags'], function() {
+
+    Route::get('/', TagIndexController::class)->name('tag.index');
+    Route::get('/create', TagCreateController::class)->name('tag.create');
+    Route::post('/', TagStoreController::class)->name('tag.store');
+    Route::get('/{tag}/edit',TagEditController::class)->name('tag.edit');
+    Route::get('/{tag}', TagShowController::class)->name('tag.show');
+    Route::patch('/{tag}', TagUpdateController::class)->name('tag.update');
+    Route::delete('/{tag}', TagDeleteController::class)->name('tag.delete');
 
 });
