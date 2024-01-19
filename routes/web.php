@@ -7,6 +7,13 @@ use App\Http\Controllers\Category\IndexController as CategoryIndexController;
 use App\Http\Controllers\Category\ShowController;
 use App\Http\Controllers\Category\StoreController;
 use App\Http\Controllers\Category\UpdateController;
+use App\Http\Controllers\Color\ColorCreateController;
+use App\Http\Controllers\Color\ColorDeleteController;
+use App\Http\Controllers\Color\ColorEditController;
+use App\Http\Controllers\Color\ColorIndexController;
+use App\Http\Controllers\Color\ColorShowController;
+use App\Http\Controllers\Color\ColorStoreController;
+use App\Http\Controllers\Color\ColorUpdateController;
 use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\Order\OrderCreateController;
 use App\Http\Controllers\Order\OrderDeleteController;
@@ -89,5 +96,17 @@ Route::group(['prefix' => 'tags'], function() {
     Route::get('/{tag}', TagShowController::class)->name('tag.show');
     Route::patch('/{tag}', TagUpdateController::class)->name('tag.update');
     Route::delete('/{tag}', TagDeleteController::class)->name('tag.delete');
+
+});
+
+Route::group(['prefix' => 'colors'], function() {
+
+    Route::get('/', ColorIndexController::class)->name('color.index');
+    Route::get('/create', ColorCreateController::class)->name('color.create');
+    Route::post('/', ColorStoreController::class)->name('color.store');
+    Route::get('/{color}/edit',ColorEditController::class)->name('color.edit');
+    Route::get('/{color}', ColorShowController::class)->name('color.show');
+    Route::patch('/{color}', ColorUpdateController::class)->name('color.update');
+    Route::delete('/{color}', ColorDeleteController::class)->name('color.delete');
 
 });
