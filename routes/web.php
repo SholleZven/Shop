@@ -36,6 +36,13 @@ use App\Http\Controllers\Tag\TagIndexController;
 use App\Http\Controllers\Tag\TagShowController;
 use App\Http\Controllers\Tag\TagStoreController;
 use App\Http\Controllers\Tag\TagUpdateController;
+use App\Http\Controllers\User\UserCreateController;
+use App\Http\Controllers\User\UserDeleteController;
+use App\Http\Controllers\User\UserEditController;
+use App\Http\Controllers\User\UserIndexController;
+use App\Http\Controllers\User\UserShowController;
+use App\Http\Controllers\User\UserStoreController;
+use App\Http\Controllers\User\UserUpdateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -108,5 +115,17 @@ Route::group(['prefix' => 'colors'], function() {
     Route::get('/{color}', ColorShowController::class)->name('color.show');
     Route::patch('/{color}', ColorUpdateController::class)->name('color.update');
     Route::delete('/{color}', ColorDeleteController::class)->name('color.delete');
+
+});
+
+Route::group(['prefix' => 'users'], function() {
+
+    Route::get('/', UserIndexController::class)->name('user.index');
+    Route::get('/create', UserCreateController::class)->name('user.create');
+    Route::post('/', UserStoreController::class)->name('user.store');
+    Route::get('/{user}/edit',UserEditController::class)->name('user.edit');
+    Route::get('/{user}', UserShowController::class)->name('user.show');
+    Route::patch('/{user}', UserUpdateController::class)->name('user.update');
+    Route::delete('/{user}', UserDeleteController::class)->name('user.delete');
 
 });
