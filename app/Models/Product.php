@@ -8,5 +8,15 @@ class Product extends Model
 {
     protected $table = 'products';
     protected $guarder = false;
-    protected $fillable = ['title'];
+    protected $fillable = [
+        'title',
+        'description',
+        'content',
+        'preview_image',
+        'price',
+        'count',
+        'is_published',
+        'user_id',
+        'category_id'
+    ];
 }
