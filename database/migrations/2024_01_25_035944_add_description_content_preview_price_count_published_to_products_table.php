@@ -18,9 +18,8 @@ return new class extends Migration
 
             $table->integer('price')->nullable();
             $table->integer('count')->nullable();
-            $table->boolean('is_published')->nullable();
+            $table->boolean('is_published')->default(true);
 
-            $table->foreignId('user_id')->nullable()->index()->constrained('users');
             $table->foreignId('category_id')->nullable()->index()->constrained('categories');
         });
     }
