@@ -35,6 +35,14 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Наименование</th>
+                                    <th>Описание</th>
+                                    <th>Контент</th>
+                                    <th>Цена</th>
+                                    <th>Количество на складе</th>
+                                    <th>Изображение</th>
+                                    <th>Категория</th>
+                                    <th>Тэг</th>
+                                    <th>Цвет</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,6 +50,14 @@
                                 <tr>
                                     <td>{{ $product->id }}</td>
                                     <td><a href="{{ route('product.show', $product->id) }}">{{ $product->title }}</a></td>
+                                    <td>{{ $product->description }}</td>
+                                    <td>{{ $product->content }}</td>
+                                    <td>{{ $product->price}}</td>
+                                    <td>{{ $product->count }}</td>
+                                    <td>{{ $product->preview_image }}</td>
+                                    <td>{{ $product->category_id }}</td>
+                                    <td>{{ $product->tags }}</td>
+                                    <td>{{ $product->colors }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

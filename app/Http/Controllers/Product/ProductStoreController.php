@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\ProductStoreRequest;
+use App\Models\ColorProduct;
 use App\Models\Product;
+use App\Models\ProductTag;
 use Illuminate\Support\Facades\Storage;
 
 class ProductStoreController extends Controller
@@ -16,9 +18,28 @@ class ProductStoreController extends Controller
         $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
 
         $tagsIds = $data['tags'];
-        $ColorsIds = $data['colors'];
+        $colorsIds = $data['colors'];
+        unset($data['tags'], $data['colors']);
 
-        Product::firstOrCreate($data);
+        $product = Product::firstOrCreate([
+            'title' => $data['title']
+        ], $data);
+
+        foreach ($tagsIds as $tagsId) {
+
+            ProductTag::create([
+                'product_id' => $product->id,
+                'tag_id' => $tagsId
+            ]);
+        }
+
+        foreach ($colorsIds as $colorsId) {
+
+            ColorProduct::create([
+                'product_id' => $product->id,
+                'color_id' => $colorsId
+            ]);
+        }
 
         return redirect()->route('product.index');
     }
