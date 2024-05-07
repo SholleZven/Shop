@@ -29,6 +29,10 @@
                         <a href="{{ route('order.create') }}" class="btn btn-primary">Добавить</a>
                     </div>
 
+                    <div class="card-header">
+                        <a href="{{ route('order.exel_report') }}" class="btn btn-primary">Скачать отчет</a>
+                    </div>
+
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover text-nowrap">
                             <thead>

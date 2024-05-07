@@ -18,6 +18,7 @@ use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\Order\OrderCreateController;
 use App\Http\Controllers\Order\OrderDeleteController;
 use App\Http\Controllers\Order\OrderEditController;
+use App\Http\Controllers\Order\OrderExcelReportController;
 use App\Http\Controllers\Order\OrderIndexController;
 use App\Http\Controllers\Order\OrderShowController;
 use App\Http\Controllers\Order\OrderStoreController;
@@ -73,6 +74,7 @@ Route::group(['prefix' => 'categories'], function() {
 Route::group(['prefix' => 'orders'], function() {
 
     Route::get('/', OrderIndexController::class)->name('order.index');
+    Route::get('/generate_exel_report', OrderExcelReportController::class)->name('order.exel_report');
     Route::get('/create', OrderCreateController::class)->name('order.create');
     Route::post('/', OrderStoreController::class)->name('order.store');
     Route::get('/{order}/edit', OrderEditController::class)->name('order.edit');
