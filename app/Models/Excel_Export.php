@@ -20,4 +20,13 @@ class Excel_Export implements FromCollection
     {
         return Order::select('id', 'title')->get();
     }
+
+    public function headings(): array
+    {
+        // Задаем заголовки столбцов
+        return [
+            'ID',
+            'Имя'
+        ];
+    }
 }

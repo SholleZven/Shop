@@ -30,7 +30,11 @@
                     </div>
 
                     <div class="card-header">
-                        <a href="{{ route('order.exel_report') }}" class="btn btn-primary">Скачать отчет</a>
+                        <a href="{{ route('order.exel_report_laravel') }}" class="btn btn-primary">Скачать отчет laravel</a>
+                    </div>
+
+                    <div class="card-header">
+                        <a href="{{ route('order.exel_report_php') }}" class="btn btn-primary">Скачать отчет php</a>
                     </div>
 
                     <div class="card-body table-responsive p-0">
