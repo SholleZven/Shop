@@ -199,6 +199,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('weather.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-cloud"></i>
+              <p>
+                Прогноз погоды
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

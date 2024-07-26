@@ -45,6 +45,7 @@ use App\Http\Controllers\User\UserIndexController;
 use App\Http\Controllers\User\UserShowController;
 use App\Http\Controllers\User\UserStoreController;
 use App\Http\Controllers\User\UserUpdateController;
+use App\Http\Controllers\Weather\WeatherIndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,7 +61,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', IndexController::class)->name('main.index');
 
-Route::group(['prefix' => 'categories'], function() {
+Route::group(['prefix' => 'categories'], function () {
 
     Route::get('/', CategoryIndexController::class)->name('category.index');
     Route::get('/create', CreateController::class)->name('category.create');
@@ -69,10 +70,9 @@ Route::group(['prefix' => 'categories'], function() {
     Route::get('/{category}', ShowController::class)->name('category.show');
     Route::patch('/{category}', UpdateController::class)->name('category.update');
     Route::delete('/{category}', DeleteController::class)->name('category.delete');
-
 });
 
-Route::group(['prefix' => 'orders'], function() {
+Route::group(['prefix' => 'orders'], function () {
 
     Route::get('/', OrderIndexController::class)->name('order.index');
     Route::get('/generate_exel_report_laravel', OrderExcelReportController::class)->name('order.exel_report_laravel');
@@ -83,10 +83,9 @@ Route::group(['prefix' => 'orders'], function() {
     Route::get('/{order}', OrderShowController::class)->name('order.show');
     Route::patch('/{order}', OrderUpdateController::class)->name('order.update');
     Route::delete('/{order}', OrderDeleteController::class)->name('order.delete');
-
 });
 
-Route::group(['prefix' => 'products'], function() {
+Route::group(['prefix' => 'products'], function () {
 
     Route::get('/', ProductIndexController::class)->name('product.index');
     Route::get('/create', ProductCreateController::class)->name('product.create');
@@ -95,41 +94,42 @@ Route::group(['prefix' => 'products'], function() {
     Route::get('/{product}', ProductShowController::class)->name('product.show');
     Route::patch('/{product}', ProductUpdateController::class)->name('product.update');
     Route::delete('/{product}', ProductDeleteController::class)->name('product.delete');
-
 });
 
-Route::group(['prefix' => 'tags'], function() {
+Route::group(['prefix' => 'tags'], function () {
 
     Route::get('/', TagIndexController::class)->name('tag.index');
     Route::get('/create', TagCreateController::class)->name('tag.create');
     Route::post('/', TagStoreController::class)->name('tag.store');
-    Route::get('/{tag}/edit',TagEditController::class)->name('tag.edit');
+    Route::get('/{tag}/edit', TagEditController::class)->name('tag.edit');
     Route::get('/{tag}', TagShowController::class)->name('tag.show');
     Route::patch('/{tag}', TagUpdateController::class)->name('tag.update');
     Route::delete('/{tag}', TagDeleteController::class)->name('tag.delete');
-
 });
 
-Route::group(['prefix' => 'colors'], function() {
+Route::group(['prefix' => 'colors'], function () {
 
     Route::get('/', ColorIndexController::class)->name('color.index');
     Route::get('/create', ColorCreateController::class)->name('color.create');
     Route::post('/', ColorStoreController::class)->name('color.store');
-    Route::get('/{color}/edit',ColorEditController::class)->name('color.edit');
+    Route::get('/{color}/edit', ColorEditController::class)->name('color.edit');
     Route::get('/{color}', ColorShowController::class)->name('color.show');
     Route::patch('/{color}', ColorUpdateController::class)->name('color.update');
     Route::delete('/{color}', ColorDeleteController::class)->name('color.delete');
-
 });
 
-Route::group(['prefix' => 'users'], function() {
+Route::group(['prefix' => 'users'], function () {
 
     Route::get('/', UserIndexController::class)->name('user.index');
     Route::get('/create', UserCreateController::class)->name('user.create');
     Route::post('/', UserStoreController::class)->name('user.store');
-    Route::get('/{user}/edit',UserEditController::class)->name('user.edit');
+    Route::get('/{user}/edit', UserEditController::class)->name('user.edit');
     Route::get('/{user}', UserShowController::class)->name('user.show');
     Route::patch('/{user}', UserUpdateController::class)->name('user.update');
     Route::delete('/{user}', UserDeleteController::class)->name('user.delete');
+});
 
+Route::group(['prefix' => 'weather'], function () {
+
+    Route::get('/', WeatherIndexController::class)->name('weather.index');
 });
