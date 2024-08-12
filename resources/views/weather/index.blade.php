@@ -33,7 +33,7 @@
                                 <tr>
                                     @if($weatherData)
                                         <div class="weather-info">
-                                            <p><strong>Температура:</strong> {{ $weatherData['temperature'] }}</p>
+                                            <p><strong>Текущая температура в Челябинске:</strong> {{ $weatherData['temperature'] }}</p>
                                             {{-- <p><strong>Описание:</strong> {{ $weatherData['description'] }}</p> --}}
                                         </div>
                                     @else

@@ -18,8 +18,8 @@ class WeatherParser
         $data = [];
 
         // Пример регулярного выражения для извлечения температуры
-        if (preg_match('/<div class="HhSR MBvM">(.*?)<\/div>/', $html, $matches)) {
-            $data['temperature'] = trim($matches[1]);
+        if (preg_match('/<div class="HhSR MBvM">(\d+)(?:<!--.*?-->)?°<\/div>/', $html, $matches)) {
+            $data['temperature'] = trim($matches[1] . "°");
         }
 
         // Пример регулярного выражения для извлечения описания
